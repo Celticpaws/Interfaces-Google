@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : WellFormed 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130731
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" /><script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script>
+window.onload = function () {
+	
+var options = {
+	mapTypeControlOptions: {
+		mapTypeIds: ['Styled']
+	},
+	center: new google.maps.LatLng(10.409473, -66.883262),
+	zoom: 17,
+	disableDefaultUI: true,	
+	mapTypeId: 'Styled'
+};
+var div = document.getElementById('surabaya');
+var map = new google.maps.StreetViewPanorama(div, options);
+var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
+map.mapTypes.set('Styled', styledMapType);
+var markers=[0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var locations = [
+      ["USTED", 10.409390, -66.883099, 1,'persona.html'],
+      ["BUS2", 10.409807, -66.882866, 2,'b-base.html'],
+      ['BUS3', 10.412220, -66.880813, 2,'b-base.html'],
+      ['BUS4', 10.412936, -66.883423, 2,'b-base.html'],
+      ['BUS5', 10.410246, -66.877440, 2,'b-base.html'],
+      ['BICI1', 10.411270, -66.880949, 3,'bici.html'],
+      ['BICI2', 10.411344, -66.882172, 3,'bici.html'],
+      ['METR1', 10.410044, -66.881172, 4,'m-base.html'],
+      ['BICI3', 10.408537, -66.880809, 3,'bici.html'],
+      ['BICI4', 10.405371, -66.881217, 3,'bici.html'],
+      ['BICI5', 10.407197, -66.877204, 3,'bici.html'],
+    ];
+ 
+ 
+for (i = 0; i < locations.length; i++) { 
+		var image={};
+		if (locations[i][3] == 1){
+			image = {url: "imagenes/icon_par.png", 
+					 size: new google.maps.Size(50,50),
+					 origin: new google.maps.Point(0,0),
+					 scaledSize: new google.maps.Size(
+					 	50,50)
+					}
+		}
+        if (locations[i][3] == 2){
+			image = {url: "imagenes/bus.png", 
+					 size: new google.maps.Size(40,40),
+					 origin: new google.maps.Point(0,0),
+					 scaledSize: new google.maps.Size(
+					 	40,40)
+					}
+		}
+		if (locations[i][3] == 3){
+			image = {url: "imagenes/bicicleta.png", 
+					 size: new google.maps.Size(40,40),
+					 origin: new google.maps.Point(0,0),
+					 scaledSize: new google.maps.Size(
+					 	40,40)
+					}
+		}
+		if (locations[i][3] == 4){
+			image = {url: "imagenes/metro.png", 
+					 size: new google.maps.Size(40,40),
+					 origin: new google.maps.Point(0,0),
+					 scaledSize: new google.maps.Size(
+					 	40,40)
+					}
+		}
+      markers[i] = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+        icon:image,
+        title: locations[i][0],
+        url: locations[i][4]
+      })
+
+	  markers[i].addListener('click', function() {window.open(this.url, "_self")});	
+      	
+};
+}
+</script>
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body>
+<div id="logo" class="container">
+	<h1><img src= "imagenes/logo.png" width=5%><a href="#">  TRAIN<span>SPOT</span></a></h1>
+</div>
+<div id="menu" class="container">
+	<ul>
+		<li><a href="index.html" accesskey="1" title="">Mapa</a></li>
+		<li><a href="realidad.html" accesskey="1" title=""><img src="imagenes/icon_realidad.png" style="width:40px;padding-right:10px;"/> Realidad Aumentada</a></li>
+		<li><a href="ruta.html" accesskey="2" title=""><img src="imagenes/icon_ruta.png" style="width:40px;padding-right:10px;"/>Ruta</a></li>
+		<li><a href="#" accesskey="3" title=""><img src="imagenes/icon_alerta.png" style="width:40px;padding-right:10px;"/>Incidente</a></li>
+		<li></li><li></li><li></li>
+		<li  class="current_page_item"><a href="configuracion.html" accesskey="4" title=""><img src="imagenes/icon_config.png" style="width:40px;padding-right:10px;"/>Configuracion</a></li>
+	</ul>
+</div>
+<div id="banner" class="container">
+	<br><br><br><br><img src="imagenes/engrane-b.png" style="margin-left: auto;
+    margin-right: auto;
+    display: block;"><br><br><br>
+    <div class="dropdown" style="display:block;margin-left:auto;margin-right:auto;width:30%">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="font-size:1.5em;width:400px">Idioma
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="font-size:1.5em;width:400px">
+      <li><a href="#">Español</a></li>
+      <li><a href="#">Ingles</a></li>
+      <li><a href="#">Frances</a></li>
+    </ul>
+  </div>
+  <br><br>
+    <div class="dropdown" style="display:block;margin-left:auto;margin-right:auto;width:30%">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="font-size:1.5em;width:400px">Color
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="font-size:1.5em;width:400px">
+      <li style="background-color:red"><a href="#" style="color:red">ROJO</a></li>
+      <li style="background-color:blue"><a href="#" style="color:blue">AZUL</a></li>
+      <li style="background-color:green"><a href="#" style="color:green">AZUL</a></li>
+      <li style="background-color:yellow"><a href="#" style="color:yellow">AZUL</a></li>
+      <li style="background-color:black"><a href="#" style="color:black">AZUL</a></li>
+    </ul>
+  </div>
+  <br><br>
+  <div class="dropdown" style="display:block;margin-left:auto;margin-right:auto;width:30%">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="font-size:1.5em;width:400px">GPS
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="font-size:1.5em;width:400px">
+      <li><a href="#">SI</a></li>
+      <li><a href="#">NO</a></li>
+    </ul>
+  </div>
+  <br><br>
+
+
+</form>
+</div>
+</body>
+</html>
