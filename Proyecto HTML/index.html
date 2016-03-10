@@ -206,9 +206,9 @@ var div = document.getElementById('surabaya');
 var map = new google.maps.Map(div, options);
 var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
 map.mapTypes.set('Styled', styledMapType);
-var markers=[0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var markers=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var locations = [
-      ["USTED", 10.409390, -66.883099, 1,'persona.html'],
+      ["USTED", 10.409220, -66.883399, 1,'persona.html'],
       ["Parada de Bus - MYS", 10.409807, -66.882866, 2,'b-base.html'],
       ['Parada de Bus - ENE', 10.412220, -66.880813, 2,'b-base.html'],
       ['Parada de Bus - Aulas', 10.412936, -66.883423, 2,'b-base.html'],
@@ -219,14 +219,25 @@ var locations = [
       ['Biciparada - Rectorado USB', 10.408537, -66.880809, 3,'bic-base.html'],
       ['Biciparada - Pabellon 5', 10.405371, -66.881217, 3,'bic-base.html'],
       ['Biciparada - Comedor de Estudiante', 10.407197, -66.877204, 3,'bic-base.html'],
+      ['Taxi - UEUSB', 10.407197, -66.876004, 5,'taxi-base.html'],
+      ['Taxi - MYS', 10.409707, -66.882566, 5,'taxi-base.html'],
+      ['Estacionamiento - MEM', 10.411570, -66.880349, 6,'parking-base.html'],
+      ['Estacionamiento - Aulas', 10.413536, -66.883223, 6,'parking-base.html'],
+      ['Estacionamiento - MYS', 10.409507, -66.882866, 6,'parking-base.html'],
+      ['Estacionamiento - Pabellon 5', 10.405771, -66.881417, 6,'parking-base.html'],
+      ['Estacionamiento - Pabellon 1', 10.407571, -66.880017, 6,'parking-base.html'],
     ];
  
  
 for (i = 0; i < locations.length; i++) { 
 		var image={};
 		if (locations[i][3] == 1){
-			image = {url: "imagenes/icon_par_b.gif", 
-					}
+			image = {url: 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=wc-male|FF0000', 
+                     size: new google.maps.Size(33,51),
+                     origin: new google.maps.Point(0,0),
+                     scaledSize: new google.maps.Size(
+                        33,51)
+                    }
 		}
         if (locations[i][3] == 2){
 			image = {url: 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=bus|1AC6FF', 
@@ -245,13 +256,29 @@ for (i = 0; i < locations.length; i++) {
 					}
 		}
 		if (locations[i][3] == 4){
-			image = {url: 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=train|FF8000', 
+			image = {url: 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=train|FD5F00', 
 					 size: new google.maps.Size(33,51),
 					 origin: new google.maps.Point(0,0),
 					 scaledSize: new google.maps.Size(
 					 	33,51)
 					}
 		}
+        if (locations[i][3] == 5){
+            image = {url: 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=taxi|FFFF00', 
+                     size: new google.maps.Size(33,51),
+                     origin: new google.maps.Point(0,0),
+                     scaledSize: new google.maps.Size(
+                        33,51)
+                    }
+        }
+        if (locations[i][3] == 6){
+            image = {url: 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=parking|333333', 
+                     size: new google.maps.Size(33,51),
+                     origin: new google.maps.Point(0,0),
+                     scaledSize: new google.maps.Size(
+                        33,51)
+                    }
+        }
       markers[i] = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         map: map,
