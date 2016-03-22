@@ -209,7 +209,11 @@ var locations = [
 for (i = 0; i < locations.length; i++) { 
 		var image={};
 		if (locations[i][3] == 1){
-			image = {url: "imagenes/icon_par_b.gif", 
+			image = {url: 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=wc-male|FF0000',
+                     size: new google.maps.Size(33,51),
+                     origin: new google.maps.Point(0,0),
+                     scaledSize: new google.maps.Size(
+                        33,51) 
 					}
 		}
         if (locations[i][3] == 2){
@@ -236,6 +240,14 @@ for (i = 0; i < locations.length; i++) {
 					 	33,51)
 					}
 		}
+        if (locations[i][3] == 5){
+            image = {url: 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=taxi|FFFF00', 
+                     size: new google.maps.Size(33,51),
+                     origin: new google.maps.Point(0,0),
+                     scaledSize: new google.maps.Size(
+                        33,51)
+                    }
+        }
       markers[i] = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         map: map,
